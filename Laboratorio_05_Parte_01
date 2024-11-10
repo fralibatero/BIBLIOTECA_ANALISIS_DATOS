@@ -1,0 +1,67 @@
+USE empresa;
+
+CREATE TABLE empleado (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    cargo  	VARCHAR(50),
+    salario  INT
+    );
+    
+use empresa;
+INSERT INTO empleado (nombre, apellido, cargo,salario)  VALUES ('Juan', 'Pérez', 'Gerente', 7500000);
+INSERT INTO empleado (nombre, apellido, cargo,salario)  VALUES ('Ana', 'Gómez', 'Desarrollador', 6000000); 
+INSERT INTO empleado (nombre, apellido, cargo,salario)  VALUES ('Luis', 'Castro', 'Proyectos', 10000000);
+INSERT INTO empleado (nombre, apellido, cargo, salario) VALUES ('Carlos', 'López', 'Asistente', 3000000);
+INSERT INTO empleado (nombre, apellido, cargo, salario) VALUES ('María', 'Fernández', 'Analista', 5500000);
+INSERT INTO empleado (nombre, apellido, cargo, salario) VALUES ('Elena', 'Martínez', 'Consultor', 7000000);
+
+
+CREATE TABLE cargo (
+    id_cargo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_cargo VARCHAR(50),
+    descripcion VARCHAR(50) NOT NULL,
+    salario   INT); 
+        
+USE empresa;
+INSERT INTO cargo (nombre_cargo,descripcion, salario)  VALUES ('Gerente', 'Gerente de la compañia', 500000);
+INSERT INTO cargo (nombre_cargo,descripcion, salario)  VALUES ('Desarrollador', 'ingenerio desarrollador', 400000);
+INSERT INTO cargo (nombre_cargo, descripcion, salario) VALUES ('Analista', 'Analista de datos', 350000);
+INSERT INTO cargo (nombre_cargo, descripcion, salario) VALUES ('Consultor', 'Consultor de negocios', 450000);
+INSERT INTO cargo (nombre_cargo, descripcion, salario) VALUES ('Asistente', 'Asistente administrativo', 300000);
+
+--- 2- Realizar la consulta de los datos de los empleados:
+USE empresa; 
+select * 
+FROM empleado; 
+
+
+---  v3.	Realizar los comandos para los siguiente:
+ 
+-  - Seleccionar todos los cargos: 
+      SELECT * FROM cargo
+-- Seleccionar empleados que ganan más de 7,000,000:
+      SELECT * FROM  cargo WHERE salario > 7000000
+--	Actualizar el salario de un empleado (por ejemplo, de 'Ana Gómez'): se quiere aumentar el salario de 'Ana Gómez' a 6,500,000:
+      USE empresa;
+      UPDATE empleado
+      SET salario  = 6500000
+      where nombre = "Ana"  AND apellido = "Gómez"; 
+
+-	Eliminar un empleado (por ejemplo, 'Luis Castro'):
+    USE empresa;
+    DELETE FROM empleado
+     WHERE nombre = "Luis" 	AND apellido = "Castro";
+
+
+    USE empresa;
+    SELECT * FROM empleado  WHERE cargo = "Desarrollador";
+
+-	Insertar un nuevo empleado con un cargo existente: se quiere agregar a 'Marta - López' con el cargo de 'Asistente' y un salario de 3,000,000:
+
+USE empresa;
+INSERT INTO empleado  (nombre, apellido, cargo, 	salario)
+             VALUES ("Marta", "López", "Asistenete", 3000000);
+
+
+

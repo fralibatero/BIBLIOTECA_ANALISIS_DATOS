@@ -1,0 +1,42 @@
+--- a)	Actualizar la disponibilidad de un libro (marcarlo como no disponible después de un préstamo)
+           USE biblioteca;
+           SELECT * FROM  libros 
+         
+b)	Actualizar la fecha de devolución de un préstamo.
+  
+          UPDATE libros 
+          set Disponible = "No"
+          where Titulo = "El Extranjero";
+
+c)	Eliminar un libro de la base de datos
+
+         DELETE FROM libros
+         WHERE Titulo = 'La Metamorfosis';
+
+
+
+5.	Deberás realizar comandos de consulta para validar la información, estas consultas son:
+Seleccionar todos los libros:  SELECT * FROM `libros` WHERE 1; 
+a)	Seleccionar todos los libros:
+•	USE biblioteca; SELECT * FROM libros;
+ 
+b)	Seleccionar todos los autores 
+     USE biblioteca;
+     SELECT * FROM  autores;
+
+c)	Seleccionar el libro de Gabriel García Márquez
+     USE biblioteca;
+      SELECT * FROM libros where ID_Autor = 1; 
+  
+
+d)	 Mostrar los libros devueltos en el mes 8 de la tabla prestamos del año 2024, puedes filtrar por el mes en la columna Fecha_Devolucion.
+
+      USE biblioteca;
+    SELECT * FROM prestamos
+      WHERE MONTH(Fecha_Devolucion)='8' AND YEAR(Fecha_Devolucion)='2024'; 
+
+ 
+
+
+
+ 
